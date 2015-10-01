@@ -1,0 +1,44 @@
+{
+  "name": "vue-format",
+  "version": "0.2.0",
+  "description": "A Vue.js plugin provides function to format messages.",
+  "private": false,
+  "homepage": "https://github.com/Haixing-Hu/vue-format",
+  "license": "MIT",
+  "configs": {
+    "directories": {
+      "archive": "archive",
+      "dist": "dist",
+      "src": "src",
+      "test": "test"
+    }
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp archive && mocha --reporter spec --timeout 5000"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "devDependencies": {
+    "apache-server-configs": "2.11.0",
+    "archiver": "^0.14.2",
+    "del": "^1.1.0",
+    "run-sequence": "^1.0.2",
+    "glob": "^4.2.1",
+    "bower": "^1.5.2",
+    "bower-update": "^0.1.0",
+    "bower-webpack-plugin": "^0.1.8",
+    "gulp": "^3.8.10",
+    "gulp-header": "^1.2.2",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "webpack": "^1.12.2",
+    "mocha": "^2.0.1",
+    "node-libs-browser": "^0.5.0",
+    "npm-update-outdated": "^0.1.6"
+  }
+}

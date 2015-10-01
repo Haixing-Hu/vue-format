@@ -18,7 +18,9 @@
     "node_modules"
   ],
   "dependencies": {
-    "vue": "^0.12.10",
-    "string-template": "^0.2.0"
+    "vue": "^0.12.10"
+  },
+  "devDependencies": {
+
   }
 }

@@ -1,10 +1,12 @@
 /**
- * vue-format: A plugin of Vue.js providing a function for formatting messages.
+ * A plugin of Vue.js providing a function for formatting messages.
  *
- * License: The MIT License
- * Author: Haixing Hu
+ * @author Haixing Hu
  */
 exports.install = function (Vue, options) {
-  var format = require("string-template");
+  var format = require("./format.js");
+  // add the $format function
   Vue.prototype.$format = format;
+  // register the format filter
+  Vue.filter("format", format);
 };
