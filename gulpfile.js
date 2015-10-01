@@ -8,9 +8,9 @@ var archiver = require("archiver")("zip");
 var uglify = require("gulp-uglify");
 var gutil = require("gulp-util");
 var webpack = require("webpack");
-// var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
 var runSequence = require("run-sequence");
+var karma = require("gulp-karma");
 var pkg = require("./package.json");
 var dirs = pkg.configs.directories;
 
@@ -44,26 +44,7 @@ gulp.task("archive:zip", function (done) {
 });
 
 gulp.task("clean", function (done) {
-  del([ dirs.archive, dirs.dist ], done);
-});
-
-gulp.task("webpack", function(callback) {
-  // modify some webpack config options
-  var webpackProdConfig = Object.create(webpackConfig);
-  webpackProdConfig.plugins.push(new webpack.DefinePlugin({
-    "process.env": {
-      // This has effect on the react lib size
-      "NODE_ENV": JSON.stringify("production")
-    }
-  }), new webpack.optimize.UglifyJsPlugin());
-  // run webpack
-  webpack(webpackProdConfig, function(err, stats) {
-    if(err) throw new gutil.PluginError("webpack:build", err);
-    gutil.log("[webpack:build]", stats.toString({
-      colors: true
-    }));
-    callback();
-  });
+  del([ dirs.archive, dirs.dist, dirs.coverage ], done);
 });
 
 gulp.task("webpack-dev", function(callback) {
@@ -83,23 +64,42 @@ gulp.task("webpack-dev", function(callback) {
   });
 });
 
-// gulp.task("webpack-dev-server", function(callback) {
-//   // modify some webpack config options
-//   var devServerConfig = Object.create(webpackConfig);
-//   devServerConfig.devtool = "eval";
-//   devServerConfig.debug = true;
-//   // Start a webpack-dev-server
-//   new WebpackDevServer(webpack(devServerConfig), {
-//     publicPath: "/" + devServerConfig.output.publicPath,
-//     stats: {
-//       colors: true
-//     }
-//   }).listen(8080, "localhost", function(err) {
-//     if(err) throw new gutil.PluginError("webpack-dev-server", err);
-//     gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
-//   });
-// });
+gulp.task("webpack", function(callback) {
+  // modify some webpack config options
+  var webpackProdConfig = Object.create(webpackConfig);
+  webpackProdConfig.plugins.push(new webpack.DefinePlugin({
+    "process.env": {
+      // This has effect on the react lib size
+      "NODE_ENV": JSON.stringify("production")
+    }
+  }), new webpack.optimize.UglifyJsPlugin());
+  webpackProdConfig.output.filename = "[name].min.js";
+  // run webpack
+  webpack(webpackProdConfig, function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack:build", err);
+    gutil.log("[webpack:build]", stats.toString({
+      colors: true
+    }));
+    callback();
+  });
+});
 
+gulp.task('test', function() {
+  // Be sure to return the stream
+  process.env.TEST_TYPE = "coverage";
+  return gulp.src([
+      path.join(dirs.test, "specs", "**", "*.js")
+    ], {
+      dot: false
+    }).pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    })).on('error', function(err) {
+      console.log("error: " + err);
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
+});
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
@@ -108,6 +108,7 @@ gulp.task("webpack-dev", function(callback) {
 gulp.task("build-dev", function (done) {
   runSequence(
     "clean",
+    "test",
     "webpack-dev",
   done);
 });
@@ -115,12 +116,15 @@ gulp.task("build-dev", function (done) {
 gulp.task("build", function (done) {
   runSequence(
     "clean",
+    "test",
+    "webpack-dev",
     "webpack",
   done);
 });
 
 gulp.task("archive", function (done) {
   runSequence(
+    "test",
     "build",
     "archive:zip",
   done);

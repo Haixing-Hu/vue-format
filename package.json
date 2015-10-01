@@ -1,16 +1,27 @@
 {
   "name": "vue-format",
-  "version": "0.2.0",
   "description": "A Vue.js plugin provides function to format messages.",
-  "private": false,
+  "version": "0.2.0",
+  "author": {
+    "name": "Haixing Hu",
+    "email": "starfish.hu@gmail.com"
+  },
   "homepage": "https://github.com/Haixing-Hu/vue-format",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Haixing-Hu/vue-format.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Haixing-Hu/vue-format/issues"
+  },
   "configs": {
     "directories": {
       "archive": "archive",
       "dist": "dist",
       "src": "src",
-      "test": "test"
+      "test": "test",
+      "coverage": "coverage"
     }
   },
   "scripts": {
@@ -21,7 +32,6 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
-    "apache-server-configs": "2.11.0",
     "archiver": "^0.14.2",
     "del": "^1.1.0",
     "run-sequence": "^1.0.2",
@@ -36,9 +46,27 @@
     "gulp-replace": "^0.5.0",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.6",
+    "gulp-karma": "^0.0.4",
     "webpack": "^1.12.2",
-    "mocha": "^2.0.1",
+    "webpack-dev-server": "^1.12.0",
     "node-libs-browser": "^0.5.0",
-    "npm-update-outdated": "^0.1.6"
+    "npm-update-outdated": "^0.1.6",
+    "mocha": "^2.0.1",
+    "power-assert": "^1.0.1",
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-sauce-launcher": "^0.2.14",
+    "karma-mocha": "^0.2.0",
+    "karma-mocha-reporter": "^1.1.1",
+    "karma-coverage": "^0.5.2",
+    "karma-coveralls": "^1.1.2",
+    "karma-sourcemap-loader": "^0.3.5",
+    "karma-webpack": "^1.7.0",
+    "phantomjs": "^1.9.18",
+    "istanbul": "^0.3.21",
+    "istanbul-instrumenter-loader": "^0.1.3"
   }
 }

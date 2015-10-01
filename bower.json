@@ -4,14 +4,15 @@
   "version": "0.1.0",
   "keywords": [
     "Vue.js",
-    "format"
+    "format",
+    "plugin"
   ],
   "license": "MIT",
   "authors": [
     "Haixing Hu"
   ],
   "main": [
-    "src/vue-format.js"
+    "dist/vue-format.min.js"
   ],
   "ignore": [
     "lib",
@@ -21,6 +22,6 @@
     "vue": "^0.12.10"
   },
   "devDependencies": {
-
+    "power-assert": "^1.0.1"
   }
 }
