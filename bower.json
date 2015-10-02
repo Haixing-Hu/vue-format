@@ -7,10 +7,15 @@
     "format",
     "plugin"
   ],
-  "license": "MIT",
   "authors": [
     "Haixing Hu"
   ],
+  "homepage": "https://github.com/Haixing-Hu/vue-format",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Haixing-Hu/vue-format.git"
+  },
   "main": [
     "dist/vue-format.min.js"
   ],
