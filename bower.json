@@ -1,7 +1,7 @@
 {
   "name": "vuejs-format",
   "description": "A plugin of Vue.js providing a function for formatting messages.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "keywords": [
     "Vue.js",
     "format",
