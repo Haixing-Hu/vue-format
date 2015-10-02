@@ -1,5 +1,9 @@
 # vue-format
 
+[![Build Status](https://circleci.com/gh/Haixing-Hu/vue-format/tree/master.svg?style=shield)](https://circleci.com/gh/Haixing-Hu/vue-format/tree/master)
+[![Coverage Status](https://coveralls.io/repos/Haixing-Hu/vue-format/badge.svg?branch=master&service=github)](https://coveralls.io/github/Haixing-Hu/vue-format?branch=master)
+
+
 A Vue.js plugin provides a function for formatting messages.
 
 # Requirements
