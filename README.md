@@ -32,7 +32,7 @@ Vue.use(format)
 new Vue({
   el: '#test-format',
   data: {
-    template: "Hello {0}, {1}!"    // list formatting template
+    template: "Hello {0}, {1}! {0}, and {{0}}"    // list formatting template
   },
   methods: {
     foo: function(arg1, arg2) {
@@ -56,11 +56,13 @@ Output the following:
 
 ```html
 <div id="test-i18n" class="message">
-  <p>Hello world, 123!</p>
-  <p>Hello world, 456!</p>
-  <p>Hello world, 789!</p>
+  <p>Hello world, 123! world, and {0}</p>
+  <p>Hello world, 456! world, and {0}</p>
+  <p>Hello world, 789! world, and {0}</p>
 </div>
 ```
+
+Note that the double brackets, e.g., `{{0}}`, will escape the brackets.
 
 # API
 
