@@ -26,10 +26,10 @@
   },
   "scripts": {
     "build": "gulp build",
-    "test": "gulp test:coverage",
+    "test": "gulp test:coveralls",
     "coverage": "gulp test:coverage",
     "coveralls": "gulp test:coveralls",
-    "ci": "gulp test:coverage && gulp test:coveralls && gulp build"
+    "ci": "gulp test:coveralls && gulp build"
   },
   "engines": {
     "node": ">=0.10.0"
