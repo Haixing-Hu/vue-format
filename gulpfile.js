@@ -86,7 +86,7 @@ gulp.task("webpack", function(callback) {
 
 gulp.task('test', function() {
   // Be sure to return the stream
-  process.env.TEST_TYPE = "coverage";
+  //process.env.TEST_TYPE = "coverage";
   return gulp.src([
       path.join(dirs.test, "specs", "**", "*.js")
     ], {

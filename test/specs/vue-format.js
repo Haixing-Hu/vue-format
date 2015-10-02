@@ -222,7 +222,7 @@ describe("vue-format", function() {
           },
           el: function() {
             var el = document.createElement("div");
-            el.id = "test-normal";
+            el.id = "test-escaped-brackets";
             document.body.appendChild(el);
             return el;
           }
