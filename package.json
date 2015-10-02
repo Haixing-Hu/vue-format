@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/Haixing-Hu/vue-format/issues"
   },
+  "main": [
+    "dist/vue-format.min.js"
+  ],
   "configs": {
     "directories": {
       "archive": "archive",

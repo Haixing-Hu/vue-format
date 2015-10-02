@@ -72,17 +72,22 @@ Note that the double brackets, e.g., `{{0}}`, will escape the brackets.
 
 # API
 
-## Vue instance function `$format(message, arg1, arg2, ...)`
+## `$format(message, arg1, arg2, ...)`
 
-Formats the messages with arguments.
-- message: the message template, which is a string contains zero or more placeholders, e.g., "{0}", "{1}", ...
-- arg1, arg2, ...: zero or more arguments used to replace the corresponding placeholders in the message template.
+This is a Vue instance method used to format the messages with arguments.
+- `message`: the message template, which is a string contains zero or more placeholders, e.g., "{0}", "{1}", ...
+- `arg1`, `arg2`, ...: zero or more arguments used to replace the corresponding placeholders in the message template.
 - return: the formatted message.
+- If there is no formatting arguments provided, the function simply returns the message without any changes.
+- If there is any argument which is `null` or `undefined`, or if there is no enough argument provided, the function will treat those arguments as empty strings.
+- If there is no message nor arguments, the function returns an empty string.
+- In order to escape a brackets, use double brackets; e.g., `{{0}}` will be treated as a string `{0}` with escaped brackets.
 
-## Vue filter `format`
+## `format`
 
-A customized filter used to format messages.
+This is a customized Vue filter used to format messages.
 - Usage example: `{{ message | format arg1 arg2 }}`
+- The effect of this filter is the same as the effect of the `$format()` function.
 
 # Contributing
 - Fork it !
