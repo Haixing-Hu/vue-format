@@ -13,7 +13,7 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      "./test/**/*.js"
+      "./test/specs/**/*.js"
     ],
 
     // list of files to exclude
@@ -23,31 +23,19 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      "test/**/*.js": ['webpack'],
-      "src/**/*.js": ['coverage']
+      "./test/**/*.js": ['webpack', 'sourcemap'],
+      "./src/**/*.js": ['webpack', 'sourcemap']
     },
 
     webpack: {
+      devtool: 'inline-source-map',
       module: {
         postLoaders: [{
           test: /\.js$/,
           exclude: /test|node_modules/,
           loader: 'istanbul-instrumenter'
         }]
-      },
-      resolve: {
-        root: [__dirname],
-        modulesDirectories: [ "lib" ]
-      },
-      plugins: [
-        new BowerWebpackPlugin({
-          modulesDirectories: [ "lib" ],
-          manifestFiles:      "bower.json",
-          includes:           /.*/,
-          excludes:           [],
-          searchResolveModulesDirectories: true
-        })
-      ],
+      }
     },
 
     webpackMiddleware: {
@@ -72,20 +60,6 @@ module.exports = function (config) {
       }]
     },
     */
-
-    plugins: [
-      require("karma-webpack"),
-      require("istanbul-instrumenter-loader"),
-      require("karma-mocha"),
-      require("karma-mocha-reporter"),
-      require("karma-coverage"),
-      require("karma-chrome-launcher"),
-      require("karma-safari-launcher"),
-      require("karma-firefox-launcher"),
-      require("karma-phantomjs-launcher"),
-      require("karma-sauce-launcher"),
-      require("karma-sourcemap-loader")
-    ],
 
     // web server port
     port: 9876,

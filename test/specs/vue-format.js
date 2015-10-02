@@ -1,4 +1,4 @@
-var assert = require("power-assert");
+var assert = require("assert");
 var Vue = require("vue");
 var VueFormat = require("../../src/vue-format");
 

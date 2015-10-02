@@ -1,47 +1,17 @@
 //  Gulp building scripts
-var fs = require("fs");
-var path = require("path");
 var gulp = require("gulp");
-var glob = require("glob");
 var del = require("del");
-var archiver = require("archiver")("zip");
-var uglify = require("gulp-uglify");
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
 var runSequence = require("run-sequence");
-var karma = require("gulp-karma");
+var Server = require('karma').Server;
 var pkg = require("./package.json");
 var dirs = pkg.configs.directories;
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
-
-gulp.task("archive:zip", function (done) {
-  var archiveName = path.resolve(dirs.archive, pkg.name + "_v" + pkg.version + ".zip");
-  var files = glob.sync("**/*.*", {
-    "cwd": dirs.dist,
-    "dot": true // include hidden files
-  });
-  var output = fs.createWriteStream(archiveName);
-  archiver.on("error", function (error) {
-    done();
-    throw error;
-  });
-  output.on("close", done);
-  files.forEach(function (file) {
-    var filePath = path.resolve(dirs.dist, file);
-    // `archiver.bulk` does not maintain the file
-    // permissions, so we need to add files individually
-    archiver.append(fs.createReadStream(filePath), {
-      "name": file,
-      "mode": fs.statSync(filePath)
-    });
-  });
-  archiver.pipe(output);
-  archiver.finalize();
-});
 
 gulp.task("clean", function (done) {
   del([ dirs.archive, dirs.dist, dirs.coverage ], done);
@@ -84,21 +54,30 @@ gulp.task("webpack", function(callback) {
   });
 });
 
-gulp.task('test', function() {
+gulp.task('test', function(done) {
   // Be sure to return the stream
-  //process.env.TEST_TYPE = "coverage";
-  return gulp.src([
-      path.join(dirs.test, "specs", "**", "*.js")
-    ], {
-      dot: false
-    }).pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'run'
-    })).on('error', function(err) {
-      console.log("error: " + err);
-      // Make sure failed tests cause gulp to exit non-zero
-      throw err;
-    });
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('test:coverage', function(done) {
+  // Be sure to return the stream
+  process.env.TEST_TYPE = "coverage";
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
+gulp.task('test:coveralls', function(done) {
+  // Be sure to return the stream
+  process.env.TEST_TYPE = "coveralls";
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 // ---------------------------------------------------------------------
