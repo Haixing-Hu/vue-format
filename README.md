@@ -10,13 +10,13 @@ A Vue.js plugin provides a function for formatting messages.
 ## npm
 
 ```shell
-$ npm install vuejs-format
+$ npm install vue-format
 ```
 
 ## bower
 
 ```shell
-$ bower install vuejs-format
+$ bower install vue-format
 ```
 
 # Usage
@@ -64,12 +64,16 @@ Output the following:
 
 # API
 
-## Vue instance function `$format(message, arg1, arg2, ...)`: Formats the messages with arguments.
+## Vue instance function `$format(message, arg1, arg2, ...)`
+
+Formats the messages with arguments.
 - message: the message template, which is a string contains zero or more placeholders, e.g., "{0}", "{1}", ...
 - arg1, arg2, ...: zero or more arguments used to replace the corresponding placeholders in the message template.
 - return: the formatted message.
 
-## Vue filter `format`: A customized filter used to format messages.
+## Vue filter `format`
+
+A customized filter used to format messages.
 - Usage example: `{{ message | format arg1 arg2 }}`
 
 # Contributing
@@ -81,6 +85,4 @@ Output the following:
 
 # License
 
-## MIT
-
-[MIT](http://opensource.org/licenses/MIT)
+[The MIT License](http://opensource.org/licenses/MIT)
