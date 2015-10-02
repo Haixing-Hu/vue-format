@@ -2,7 +2,9 @@
 
 [![Build Status](https://circleci.com/gh/Haixing-Hu/vue-format/tree/master.svg?style=shield)](https://circleci.com/gh/Haixing-Hu/vue-format/tree/master)
 [![Coverage Status](https://coveralls.io/repos/Haixing-Hu/vue-format/badge.svg?branch=master&service=github)](https://coveralls.io/github/Haixing-Hu/vue-format?branch=master)
-
+[![bitHound Score](https://www.bithound.io/github/Haixing-Hu/vue-format/badges/score.svg)](https://www.bithound.io/github/Haixing-Hu/vue-format)
+[![Dependency Status](https://david-dm.org/Haixing-Hu/vue-format.svg)](https://david-dm.org/Haixing-Hu/vue-format)
+[![devDependency Status](https://david-dm.org/Haixing-Hu/vue-format/dev-status.svg)](https://david-dm.org/Haixing-Hu/vue-format#info=devDependencies)
 
 A Vue.js plugin provides a function for formatting messages.
 
