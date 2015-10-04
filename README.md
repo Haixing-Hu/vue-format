@@ -61,7 +61,7 @@ Template the following:
 Output the following:
 
 ```html
-<div id="test-i18n" class="message">
+<div id="test-format" class="message">
   <p>Hello world, 123! world, and {0}</p>
   <p>Hello world, 456! world, and {0}</p>
   <p>Hello world, 789! world, and {0}</p>
