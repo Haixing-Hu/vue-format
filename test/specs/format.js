@@ -1,5 +1,5 @@
 var assert = require("assert");
-var format = require("../../src/format");
+var format = require("../../src/format.js");
 
 describe("format", function() {
   describe("argument", function() {

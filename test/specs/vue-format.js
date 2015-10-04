@@ -1,6 +1,6 @@
 var assert = require("assert");
 var Vue = require("vue");
-var VueFormat = require("../../src/vue-format");
+var VueFormat = require("../../src/vue-format.js");
 
 describe("vue-format", function() {
 
