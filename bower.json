@@ -17,7 +17,7 @@
     "url": "git@github.com:Haixing-Hu/vue-format.git"
   },
   "main": [
-    "dist/vue-format.min.js"
+    "src/vue-format.js"
   ],
   "ignore": [
     "lib",
