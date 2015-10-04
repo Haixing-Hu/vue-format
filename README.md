@@ -96,6 +96,55 @@ This is a customized Vue filter used to format messages.
 - Push to the branch: `git push origin my-new-topic`
 - Submit a pull request to `dev` branch of `Haixing-Hu/vue-format` repository !
 
+# Building Scripts
+
+First you should install all depended NPM packages. The NPM packages are used
+for building and testing this package.
+
+```shell
+$ npm install
+```
+
+Then install all depended bower packages. The bower packages are depended by
+this packages.
+
+```shell
+$ bower install
+```
+
+Now you can build the project.
+```shell
+$ gulp build
+```
+
+The following command will test the project.
+```shell
+$ gulp test
+```
+
+The following command will perform the test and generate a coverage report.
+```shell
+$ gulp test:coverage
+```
+
+The following command will perform the test, generate a coverage report, and
+upload the coverage report to [coveralls.io](https://coveralls.io/).
+```shell
+$ gulp test:coveralls
+```
+
+And you can also run `bower install` and `gulp build` together with the
+following command:
+```shell
+npm build
+```
+
+Or run `bower install` and `gulp test:coveralls` together with the following
+command:
+```shell
+npm test
+```
+
 # License
 
 [The MIT License](http://opensource.org/licenses/MIT)
