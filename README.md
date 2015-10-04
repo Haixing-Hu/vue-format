@@ -96,7 +96,7 @@ This is a customized Vue filter used to format messages.
 - Push to the branch: `git push origin my-new-topic`
 - Submit a pull request to `dev` branch of `Haixing-Hu/vue-format` repository !
 
-# Building Scripts
+# Building and Testing
 
 First you should install all depended NPM packages. The NPM packages are used
 for building and testing this package.
@@ -133,8 +133,8 @@ upload the coverage report to [coveralls.io](https://coveralls.io/).
 $ gulp test:coveralls
 ```
 
-And you can also run `bower install` and `gulp build` together with the
-following command:
+You can also run `bower install` and `gulp build` together with the following
+command:
 ```shell
 npm build
 ```
