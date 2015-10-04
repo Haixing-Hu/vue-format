@@ -37,15 +37,15 @@
     "node": ">=0.10.0"
   },
   "devDependencies": {
+    "bower": "^1.5.3",
+    "bower-update-all": "^0.1.1",
+    "npm-check-updates": "^2.3.0",
     "del": "^2.0.2",
     "run-sequence": "^1.0.2",
-    "bower": "^1.5.2",
-    "bower-update": "^0.1.0",
     "bower-webpack-plugin": "^0.1.8",
     "gulp": "^3.8.10",
     "gulp-util": "^3.0.6",
     "webpack": "^1.12.2",
-    "npm-update-outdated": "^0.1.6",
     "mocha": "^2.0.1",
     "karma": "^0.13.10",
     "karma-chrome-launcher": "^0.2.0",

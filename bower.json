@@ -1,7 +1,7 @@
 {
   "name": "vue-format",
   "description": "A plugin of Vue.js providing a function for formatting messages.",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "keywords": [
     "Vue.js",
     "format",
@@ -25,6 +25,6 @@
     "node_modules"
   ],
   "dependencies": {
-    "vue": "^0.12.10"
+    "vue": "~0.12.16"
   }
 }
