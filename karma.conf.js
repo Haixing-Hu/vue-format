@@ -93,7 +93,9 @@ module.exports = function (config) {
       settings.browsers = ['PhantomJS'];
       settings.reporters = ['coverage', 'coveralls'];
       settings.coverageReporter = {
-        reporters: [{ type: 'lcov', dir: "./coverage" }]
+        reporters: [{
+          type: 'lcov', dir: "./coverage"
+        }]
       };
       break;
     case 'sauce':
