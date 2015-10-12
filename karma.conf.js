@@ -30,7 +30,7 @@ module.exports = function (config) {
       module: {
         postLoaders: [{
           test: /\.js$/,
-          exclude: /test|node_modules/,
+          exclude: /test|node_modules|lib/,
           loader: 'istanbul-instrumenter'
         }]
       }
