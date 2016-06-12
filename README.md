@@ -9,7 +9,7 @@
 A Vue.js plugin provides a function for formatting messages.
 
 # Requirements
-- [Vue.js](https://github.com/yyx990803/vue) `^0.12.0`
+- [Vue.js](https://github.com/yyx990803/vue) `^1.0.24`
 
 # Instllation
 
