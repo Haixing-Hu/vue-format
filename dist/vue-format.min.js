@@ -1,5 +1,5 @@
 /*!
- * vue-format v0.3.0
+ * vue-format v0.3.1
  * (c) 2016 Haixing Hu
  * Released under the MIT License.
  */
